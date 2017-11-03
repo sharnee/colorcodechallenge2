@@ -1,7 +1,7 @@
 const colorcode = [
 {
   color : "Black",
-  digit :" 0",
+  digit :"0",
   multiplier : "1",
   tolerance: " "
 }, 
@@ -50,7 +50,7 @@ const colorcode = [
 {
   color : "Gray",
   digit : "8",
-  multiplier : "00000000",
+  multiplier : "100000000",
   tolerance: " "
 }, 
 {

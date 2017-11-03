@@ -6,21 +6,23 @@ class Digit1 extends Component {
 
   constructor(props) {
     super(props);
+    let bands = colorcode;
     this.state = {
-      color: this.props.chosenColor,
-      digit: this.props.colorValue
+      colors: bands,
+      options: [' ', ' ', ' '] 
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange(event, name, multiplier = 0) {
+  	console.log(event, name, multiplier)
     this.setState({
-      color: event.target.chosenColor,
-      digit: event.target.colorValue
+      [name]: event.target.value,
     });
   }
+
 
   handleSubmit(event) {
     alert('The color you have picked is: ' + this.state.color);
@@ -28,32 +30,31 @@ class Digit1 extends Component {
   }
 
   render() {
+  	console.log(this.state, 'the state')
   	console.log("this is the props", this.props)
-    const options = colorcode.map((code, digit, index) => (
-      <option value={code.color}>{code.color}</option>
+    const colorOptions = colorcode.map((code, index) => (
+    	<option key={index} value={code.digit}>{code.color}</option>
     ));
-    console.log(options, "these are the options")
+    console.log(colorOptions, "these are the options")
     console.log( "these are the digitSelected")
     return (
       <div>
 	      <form onSubmit={this.handleSubmit}>
 	        {console.log('onSubmit is working')}
-	        <label>Pick your Color:</label>
-	        <select value={this.state.color} onChange={this.handleChange}>
-	          { options }
-	        </select>
-	        <select value={this.state.color} onChange={this.handleChange}>
-	          { options }
-	        </select>
-	        <select value={this.state.color} onChange={this.handleChange}>
-	          { options }
-	        </select>
-	        <select value={this.state.color} onChange={this.handleChange}>
-	          { options }
-	        </select>
+	        {this.state.options.map((option, optionsIndex) => {
+	        	return <div>
+			        <label>Pick your Color:</label>
+			        <select value={this.state.color} name={`options[${optionsIndex}]`} onChange={(e) => this.handleChange(e)}>
+			          { colorcode.map((code, index) => (
+    	                 <option key={index} value={optionsIndex == 2 ?code.multiplier : code.digit}>{code.color}</option>
+                       ))}
+			        </select>
+		       </div>
+	        })}
+	   
 	       <input type="submit" value="Submit"/>
 	      </form>
-	      <h1>test</h1>
+	      <h1>{this.state.digit}</h1>
       </div>
     )
   }
