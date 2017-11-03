@@ -9,17 +9,24 @@ class Digit1 extends Component {
     let bands = colorcode;
     this.state = {
       colors: bands,
-      options: [' ', ' ', ' '] 
+      options: [ 0 , 0, 0],
+      option0: 0,
+      option1: 0,
+      option2: 0,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+ 
+  handleChange(event) {
+  	event.preventDefault()
+  	let	{name, value} = event.target
 
-  handleChange(event, name, multiplier = 0) {
-  	console.log(event, name, multiplier)
+  	console.log( name , "and" , value)
+
     this.setState({
-      [name]: event.target.value,
+      [name]: value
     });
   }
 
@@ -31,12 +38,6 @@ class Digit1 extends Component {
 
   render() {
   	console.log(this.state, 'the state')
-  	console.log("this is the props", this.props)
-    const colorOptions = colorcode.map((code, index) => (
-    	<option key={index} value={code.digit}>{code.color}</option>
-    ));
-    console.log(colorOptions, "these are the options")
-    console.log( "these are the digitSelected")
     return (
       <div>
 	      <form onSubmit={this.handleSubmit}>
@@ -44,7 +45,7 @@ class Digit1 extends Component {
 	        {this.state.options.map((option, optionsIndex) => {
 	        	return <div>
 			        <label>Pick your Color:</label>
-			        <select value={this.state.color} name={`options[${optionsIndex}]`} onChange={(e) => this.handleChange(e)}>
+			        <select name={`option${optionsIndex}`} onChange={(e) => this.handleChange(e)}>
 			          { colorcode.map((code, index) => (
     	                 <option key={index} value={optionsIndex == 2 ?code.multiplier : code.digit}>{code.color}</option>
                        ))}
