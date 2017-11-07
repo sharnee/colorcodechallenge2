@@ -54,9 +54,9 @@ class IOhmValueCalculator extends Component {
 			      	)}
             )}		   
 			    </form>
-			    <h1> Ohm Value: {(bandAColor + bandBColor) * bandCColor}</h1>
-			    <h1> Minimum {(bandAColor + bandBColor) * bandCColor * (1 - bandDColor)}</h1>
-			    <h1> Maximum {(bandAColor + bandBColor) * bandCColor * (1 + bandDColor)}</h1>
+			    <h1> Ohm Value: {ACTION.ohmValue(bandAColor, bandBColor, bandCColor)}</h1>
+			    <h1> Minimum {ACTION.minValue(bandAColor, bandBColor, bandCColor, bandDColor)}</h1>
+			    <h1> Maximum {ACTION.maxValue(bandAColor, bandBColor, bandCColor, bandDColor)}</h1>
 		    </div>
       </div>
     )

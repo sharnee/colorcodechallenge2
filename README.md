@@ -1,21 +1,18 @@
-1. The electronic color code (http://en.wikipedia.org/wiki/Electronic_color_code) is used to indicate the values or ratings of electronic components, very commonly for resistors. Write a class that implements the following interface. Feel free to include any supporting types as necessary.
- 
-public interface IOhmValueCalculator
-{
-   /// <summary>
-   /// Calculates the Ohm value of a resistor based on the band colors.
-   /// </summary>
-   /// <param name="bandAColor">The color of the first figure of component value band.</param>
-   /// <param name="bandBColor">The color of the second significant figure band.</param>
-   /// <param name="bandCColor">The color of the decimal multiplier band.</param>
-   /// <param name="bandDColor">The color of the tolerance value band.</param>
-   int CalculateOhmValue(string bandAColor, string bandBColor, string bandCColor, string bandDColor);
-}
- 
-2. Using your favorite unit test framework, write the unit tests you feel are necessary to adequately test the code you wrote as your answer to question one.
- 
-3. Create a .NET MVC or Reactjs web interface that will allow someone to use the calculator you created in step one.
- 
-4. Submit your code by a public or private repository like github, gitlab or bitbucket.
+## Answers to the Code Challenge provided by Blinds.com
 
-inside of the constructor we are setting the default state
+### Retrospective 
+
+Here are a few of my take aways from this challenge
+	- Better planning makes for a better coding process.
+	- Writing the test before actually building the react components would make testing more valuable. 
+	- Building an MVP first vs. refactoring while building a working model will speed up production time.
+	- I still have a lot to learn
+
+### Feedback on Challenge
+
+Initially when I reviewed the code challenge, I was super intimidated by the task because:
+
+- The topic was foreign to me.
+- I do not think in C and therefore found it difficult to translate the task. 
+
+But I am glad that I was able to complete the test because I was able to flex my react skills. 
